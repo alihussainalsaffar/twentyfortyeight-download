@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tile Merge</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="icon.png">
+<style>
+  :root { --accent: #1f9d6b; --ink: #1d1b20; --muted: #5f5a6b; --line: #e6e0ec; --bg: #fbf8ff; --card: #ffffff; }
+  * { box-sizing: border-box; margin: 0; }
+  body { font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif; background: var(--bg); color: var(--ink); line-height: 1.5; }
+  header { background: var(--accent); color: #fff; padding: 18px 20px; font-size: 20px; font-weight: 800; }
+  main { max-width: 460px; margin: 0 auto; padding: 24px 16px 40px; }
+  .logo { display: block; width: 96px; height: 96px; margin: 0 auto 16px; border-radius: 22px; }
+  h1 { font-size: 24px; text-align: center; }
+  .lead { color: var(--muted); text-align: center; margin: 6px 0 24px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 18px; margin-bottom: 14px; }
+  .card.primary { border-color: var(--accent); box-shadow: 0 2px 10px rgba(31,157,107,.18); }
+  h2 { font-size: 17px; margin-bottom: 4px; }
+  .card p, ol { color: var(--muted); font-size: 15px; }
+  .btn { display: block; text-align: center; text-decoration: none; background: var(--accent); color: #fff; font-weight: 700; padding: 13px; border-radius: 10px; margin-top: 12px; }
+  .btn.alt { background: transparent; color: var(--accent); border: 1px solid var(--accent); }
+  ol { padding-left: 20px; margin-top: 10px; }
+  footer { color: var(--muted); font-size: 13px; text-align: center; margin-top: 18px; }
+</style>
+</head>
+<body>
+<header>Tile Merge</header>
+<main>
+  <img class="logo" src="icon.png" alt="">
+  <h1>Install Tile Merge</h1>
+  <p class="lead">Flutter project by Ali Alsaffar: the twenty-forty-eight sliding tile game</p>
+
+  <section class="card" id="android">
+    <h2>Android</h2>
+    <p>Swipe to slide the tiles, join equal numbers and reach 2048. Options let you pick the grid size, the starting tiles and the sound.</p>
+    <a class="btn" href="tile-merge.apk" download>Download for Android (45 MB)</a>
+    <ol>
+      <li>Open the downloaded file.</li>
+      <li>If asked, allow installing from this source.</li>
+      <li>Tap Install, then Open.</li>
+    </ol>
+  </section>
+
+  <section class="card" id="ios">
+    <h2>iPhone</h2>
+    <p>iPhone apps can't be installed from a web page, so this opens the same app in Safari.</p>
+    <a class="btn alt" href="app/">Open Tile Merge in the browser</a>
+  </section>
+
+  <footer>Source code is in the private Gitea repo aalsaffar/twenty-forty-eight.</footer>
+</main>
+<script>
+  // Show the visitor's own platform first.
+  var ua = navigator.userAgent;
+  var isIos = /iPhone|iPad|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  var first = document.getElementById(isIos ? 'ios' : 'android');
+  first.classList.add('primary');
+  first.parentNode.insertBefore(first, document.querySelector('.card'));
+</script>
+</body>
+</html>
